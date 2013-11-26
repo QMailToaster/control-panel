@@ -6,16 +6,16 @@ License: 	GNU
 Group:		System/Configuration
 Vendor:		Qmailtoaster
 URL:		http://qmailtoaster.com/
-Source0:	index.php
-Source1:	send-email.module
-Source2:	toaster.conf
-Source3:	admin.inc.php
-Source4:	background.gif
-Source5:	email.php
-Source7:	javascript.js
+#Source0:	index.php
+#Source1:	send-email.module
+#Source2:	toaster.conf
+#Source3:	admin.inc.php
+#Source4:	background.gif
+#Source5:	email.php
+#Source7:	javascript.js
 Source8:	kl-qmail-w.gif
-Source9:	styles.css
-Source10:	updated.gif
+#Source9:	styles.css
+#Source10:	updated.gif
 Requires:	httpd
 Requires:	php
 Obsoletes:      control-panel-toaster
@@ -52,16 +52,6 @@ Requires:	control-panel-toaster >= %{version}-%{release}
 %description -n send-emails
 Provides a module for control-panel-toaster for sending email to all
 system users.
-
-#----------------------------------------------------------------------
-%prep
-#----------------------------------------------------------------------
-
-%setup -q
-
-#----------------------------------------------------------------------
-%build
-#----------------------------------------------------------------------
 
 #----------------------------------------------------------------------
 %install
