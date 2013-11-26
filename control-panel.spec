@@ -6,9 +6,17 @@ License: 	GNU
 Group:		System/Configuration
 Vendor:		Qmailtoaster
 URL:		http://qmailtoaster.com/
-Source0:	http://mirrors.qmailtoaster.com/active/apache-toaster-conf-%{version}.tar.bz2
-Source1:	https://raw.github.com/QMailToaster/pkgs/master/control-panel/send-email.module
-Source2:	https://raw.github.com/QMailToaster/pkgs/master/control-panel/toaster.conf
+#Source0:	http://mirrors.qmailtoaster.com/active/apache-toaster-conf-%{version}.tar.bz2
+#Source1:	send-email.module
+#Source2:	toaster.conf
+#Source3:	admin.inc.php
+#Source4:	background.gif
+#Source5:	email.php
+#Source6:	index.php
+#Source7:	javascript.js
+#Source8:	kl-qmail-w.gif
+#Source9:	styles.css
+#Source10:	updated.gif
 Requires:	httpd
 Requires:	php
 Obsoletes:      control-panel-toaster
@@ -35,7 +43,6 @@ as qmailadmin, mrtg, ezmlm.
 It is written in a modular way so we can add - in the future - modules
 such as isoqlog, antivirus interfaces, statistics, etc etc...
 
-
 #----------------------------------------------------------------------
 %package -n send-emails
 #----------------------------------------------------------------------
@@ -51,7 +58,7 @@ system users.
 %prep
 #----------------------------------------------------------------------
 
-%setup -q -n apache-toaster-conf-%{version}
+%setup -q
 
 #----------------------------------------------------------------------
 %build
@@ -74,29 +81,26 @@ mkdir -p %{buildroot}%{basedir}/include
 
 # Add Send Mail module to the Control Panel
 #----------------------------------------------------------------------
-install %{SOURCE1} %{buildroot}%{basedir}/include/email.module
+install send-email.module %{buildroot}%{basedir}/include/email.module
 
 # Create a configuration file for httpd.conf
 #----------------------------------------------------------------------
-install %{SOURCE2} %{buildroot}%{apachedir}toaster.conf
+install toaster.conf %{buildroot}%{apachedir}toaster.conf
 
-install -m644 index.php        %{buildroot}%{htdocs}/admin/index.php
-install -m644 admin.inc.php    %{buildroot}%{basedir}/include/admin.inc.php
-install -m644 ./*.gif          %{buildroot}%{htdocs}/images/
-install -m644 ./javascripts.js %{buildroot}%{htdocs}/scripts/
-install -m644 ./styles.css     %{buildroot}%{htdocs}/scripts/
-install -m644 ./email.php      %{buildroot}%{htdocs}/admin/email/index.php
+install index.php        %{buildroot}%{htdocs}/admin/index.php
+install admin.inc.php    %{buildroot}%{basedir}/include/admin.inc.php
+install email.php        %{buildroot}%{htdocs}/admin/email/index.php
+install *.gif            %{buildroot}%{htdocs}/images/
+install javascripts.js   %{buildroot}%{htdocs}/scripts/
+install styles.css       %{buildroot}%{htdocs}/scripts/
 
-touch %{buildroot}%{basedir}/include/admin.htpasswd
-
-[ -f %{buildroot}%{basedir}/include/admin.pass ] || \
-      echo "toaster" > %{buildroot}%{basedir}/include/admin.pass
+touch            %{buildroot}%{basedir}/include/admin.htpasswd
+echo "toaster" > %{buildroot}%{basedir}/include/admin.pass
 
 #----------------------------------------------------------------------
 %clean
 #----------------------------------------------------------------------
 rm -rf %{buildroot}
-rm -rf $RPM_BUILD_DIR/apache-toaster-conf-%{version}
 
 #----------------------------------------------------------------------
 %preun
