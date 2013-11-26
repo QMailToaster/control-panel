@@ -1,0 +1,7 @@
+<!-- send-email.module -->
+<tr>
+        <td align="right" width="47%">Send Emails to Users</td>
+        <td width="6%">&nbsp;</td>
+        <td align="left" width=47%"><input type="button" value="Email Users" class="inputs" onClick="location.href='/admin-toaster/email/';"></td>
+</tr>
+<!-- send-email.module -->
