@@ -6,6 +6,16 @@ License: 	GNU
 Group:		System/Configuration
 Vendor:		Qmailtoaster
 URL:		http://qmailtoaster.com/
+Source1:	send-email.module
+Source2:	toaster.conf
+Source3:	admin.inc.php
+Source4:	email.php
+Source5:	index.php
+Source6:	javascripts.js
+Source7:	styles.css
+Source8:	background.gif
+Source9:	kl-qmai-w.gif
+Source10:	updated.gif
 Requires:	httpd
 Requires:	php
 Obsoletes:      control-panel-toaster
