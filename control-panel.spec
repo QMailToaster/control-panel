@@ -14,7 +14,7 @@ Source5:	index.php
 Source6:	javascripts.js
 Source7:	styles.css
 Source8:	background.gif
-Source9:	kl-qmai-w.gif
+Source9:	kl-qmail-w.gif
 Source10:	updated.gif
 Requires:	httpd
 Requires:	php
