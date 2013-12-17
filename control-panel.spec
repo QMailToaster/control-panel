@@ -70,21 +70,20 @@ mkdir -p %{buildroot}%{basedir}/include
 
 # Add Send Mail module to the Control Panel
 #----------------------------------------------------------------------
-install %{_sourcedir}/send-email.module \
-        %{buildroot}%{basedir}/include/email.module
+install %{SOURCE1}  %{buildroot}%{basedir}/include/email.module
 
 # Create a configuration file for httpd.conf
 #----------------------------------------------------------------------
-install %{_sourcedir}/toaster.conf \
-        %{buildroot}%{apachedir}toaster.conf
+install %{SOURCE2}   %{buildroot}%{apachedir}toaster.conf
 
-install %{_sourcedir}/admin.inc.php   %{buildroot}%{basedir}/include/.
-install %{_sourcedir}/email.php \
-        %{buildroot}%{htdocs}/admin/email/index.php
-install %{_sourcedir}/index.php       %{buildroot}%{htdocs}/admin/.
-install %{_sourcedir}/javascripts.js  %{buildroot}%{htdocs}/scripts/.
-install %{_sourcedir}/styles.css      %{buildroot}%{htdocs}/scripts/.
-install %{_sourcedir}/*.gif           %{buildroot}%{htdocs}/images/.
+install %{SOURCE3}   %{buildroot}%{basedir}/include/.
+install %{SOURCE4}   %{buildroot}%{htdocs}/admin/email/index.php
+install %{SOURCE5}   %{buildroot}%{htdocs}/admin/.
+install %{SOURCE6}   %{buildroot}%{htdocs}/scripts/.
+install %{SOURCE7}   %{buildroot}%{htdocs}/scripts/.
+install %{SOURCE8}   %{buildroot}%{htdocs}/images/.
+install %{SOURCE9}   %{buildroot}%{htdocs}/images/.
+install %{SOURCE10}  %{buildroot}%{htdocs}/images/.
 
 touch            %{buildroot}%{basedir}/include/admin.htpasswd
 echo "toaster" > %{buildroot}%{basedir}/include/admin.pass
