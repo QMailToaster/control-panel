@@ -45,12 +45,12 @@ such as isoqlog, antivirus interfaces, statistics, etc etc...
 #----------------------------------------------------------------------
 %package -n send-emails
 #----------------------------------------------------------------------
-Summary:	send-emails-toaster module
+Summary:	send-emails module
 Group:		System/Servers
-Requires:	control-panel-toaster >= %{version}-%{release}
+Requires:	control-panel >= %{version}-%{release}
 
 %description -n send-emails
-Provides a module for control-panel-toaster for sending email to all
+Provides a module for control-panel for sending email to all
 system users.
 
 #----------------------------------------------------------------------
@@ -97,9 +97,9 @@ rm -rf %{buildroot}
 %preun
 #----------------------------------------------------------------------
 if [ "$1" = 0 ]; then
-   # Remove toaster.conf
-   grep -v 'Include %{apachedir}toaster.conf' %{hcpath} > %{hcpath}.new
-   mv -f %{hcpath}.new %{hcpath}
+  # Remove toaster.conf
+  grep -v 'Include %{apachedir}toaster.conf' %{hcpath} > %{hcpath}.new
+  mv -f %{hcpath}.new %{hcpath}
 fi
 
 #----------------------------------------------------------------------
