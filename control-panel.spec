@@ -107,7 +107,7 @@ fi
 #----------------------------------------------------------------------
 if [ $1 = "1" ]; then
 
-if [ ! -s %{basedir}/include/admin.htpasswd ];
+if [ ! -s %{basedir}/include/admin.htpasswd ]; then
   %{_dopasswd} -bc %{basedir}/include/admin.htpasswd admin toaster >/dev/null 2>&1
 fi
 
