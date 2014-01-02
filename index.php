@@ -52,7 +52,7 @@ function CheckFormChangePassword(form) {
 </head>
 <body text="#000000" vlink="#004400" alink="#ff0000" link="#007700" bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/images-toaster/background.gif">
 <center>
-  <form action="<? print $PHP_SELF; ?>" method="POST" onSubmit="return CheckFormChangePassword(this)">
+  <form action="<?php print $PHP_SELF; ?>" method="POST" onSubmit="return CheckFormChangePassword(this)">
   <table width="750" border="0" cellpadding="0" cellspacing="0">
     <tbody> 
     <tr> 
@@ -76,7 +76,7 @@ function CheckFormChangePassword(form) {
     </tr>
     <tr> 
       <td colspan="2"><br>
-      <? print_change_passwd($_POST['oldpasswd'], $_POST['newpasswd'], $_POST['newpasswd2']); ?>
+      <?php print_change_passwd($_POST['oldpasswd'], $_POST['newpasswd'], $_POST['newpasswd2']); ?>
       <br></td>
     </tr>
     <tr> 
@@ -84,7 +84,7 @@ function CheckFormChangePassword(form) {
     </tr>
     <tr> 
       <td colspan="2"><br>
-      <? print_quick_go(); ?>      
+      <?php print_quick_go(); ?>      
       <br></td>
     </tr>
     </tbody> 
