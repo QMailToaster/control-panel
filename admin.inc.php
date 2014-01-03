@@ -2,7 +2,9 @@
 
 DEFINE("BASEDIR", "/usr/share/toaster/");
 
-$file = $_GET['file'];
+# 01/03/14 shubes - don't know why this is here - throws warning
+#                 - I don't see what purpose it could serve, so commented it
+# $file = $_GET['file'];
 
 function read_file($file) {
 
