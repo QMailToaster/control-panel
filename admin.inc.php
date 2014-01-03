@@ -216,6 +216,7 @@ function find_all_domains () {
 function print_notify_users( $from = "", $emailText = "", $subject = "") {
 
 	unset ( $html ) ;
+	$html = '';
 	
 	if ( $subject && $from && $emailText ) {
 
