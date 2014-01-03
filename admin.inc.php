@@ -6,8 +6,10 @@ $file = $_GET['file'];
 
 function read_file($file) {
 
+        $mode = r;
+
 	if ( is_readable ( $file ) ) {
-		$fd = fopen ( $file, r ) ;
+		$fd = fopen ( $file, $mode ) ;
 		$contents = fread ( $fd, filesize( $file ) ) ;
 		fclose ( $fd ) ;
 		$contents = ereg_replace("\n", "", $contents ) ;
@@ -21,8 +23,10 @@ function read_file($file) {
 
 function write_file($contents="", $file) {
 
+        $mode = w;
+
 	if ( is_writable ( $file ) && strlen( $contents ) >= 1 ) {
-		$fd = fopen ( $file, w ) ;
+		$fd = fopen ( $file, $mode ) ;
 		fwrite ( $fd, $contents ) ;
 		fclose ( $fd ) ;
 		return true ;
@@ -126,6 +130,7 @@ function print_change_passwd($oldpasswd="", $newpasswd="", $newpasswd2="") {
 function print_quick_go() { // Modular
 	
 	unset ( $html ) ;
+        $mode = r;
 	
 	$dir  = chdir( BASEDIR . "/include" );
 	$hd   = opendir (".");
@@ -134,7 +139,7 @@ function print_quick_go() { // Modular
 
 		if ( substr ( $file, -7 ) == ".module" ) {
 		
-			$fd 	= fopen ( $file, r ) ;
+			$fd 	= fopen ( $file, $mode ) ;
 			$html  .= fread ( $fd, filesize ( $file ) ) ;
 			fclose ( $fd ) ;
 
@@ -148,10 +153,11 @@ function print_quick_go() { // Modular
 
 function print_updates() {
 
+        $mode = r;
 	$start="<!-- TABELLA PACCHETTI RPM -->";
 	$stop="<!-- FINE TABELLA PACCHETTI RPM -->" ;
 	$masterUrl="http://www.qmailtoaster.com";
-	if ( $fd = @fopen( $masterUrl , "r") ) {
+	if ( $fd = @fopen( $masterUrl , $mode ) ) {
 		$contents = fread($fd, 200000);
 		eregi("$start(.*)$stop", $contents, $html);
 		$html = ereg_replace("src=\"/imgs/", "src=\"$masterUrl/imgs/", $html[1] ) ;
