@@ -80,7 +80,7 @@ function CheckFormSendEmail(form) {
     <tr> 
     </tbody> 
   </table>
-  <br><i><a href="http://www.qmailtoaster.com" target="_blank">Qmail Toaster &copy 2004-2014</a></i><br>
+  <br><i><a href="http://qmailtoaster.com" target="_blank">Qmail Toaster &copy 2004-2014</a></i><br>
 </form>
 </center>
 </body></html>

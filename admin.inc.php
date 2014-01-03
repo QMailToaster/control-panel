@@ -150,11 +150,12 @@ function print_quick_go() { // Modular
 	
 }
 
+# 01/03/14 shubes - this function does not appear to be implemented anywhere
 function print_updates() {
 
 	$start="<!-- TABELLA PACCHETTI RPM -->";
 	$stop="<!-- FINE TABELLA PACCHETTI RPM -->" ;
-	$masterUrl="http://www.qmailtoaster.com";
+	$masterUrl="http://qmailtoaster.com";
 	if ( $fd = @fopen( $masterUrl , "r" ) ) {
 		$contents = fread($fd, 200000);
 		eregi("$start(.*)$stop", $contents, $html);
