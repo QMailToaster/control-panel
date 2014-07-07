@@ -1,6 +1,6 @@
 Name:      control-panel
 Summary:   Toaster Control Panel
-Version:   0.5
+Version:   0.5.1
 Release:   0%{?dist}
 License:   GNU
 Group:     System/Configuration
@@ -167,6 +167,8 @@ fi
 #----------------------------------------------------------------------
 %changelog
 #----------------------------------------------------------------------
+* Mon Jul  7 2014 Eric Shubert <eric@datamatters.us> 0.5.1-0.qt
+- Removed isoqlog from toaster.conf httpd config
 * Fri Nov 15 2013 Eric Shubert <eric@datamatters.us> 0.5-0.qt
 - Migrated to repoforge
 - Removed -toaster designation
